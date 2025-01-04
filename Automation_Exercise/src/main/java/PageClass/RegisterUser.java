@@ -30,7 +30,7 @@ public class RegisterUser {
     final By CountryDropdownList = By.xpath("//select[@id='country']");
     final By StateField = By.xpath("//input[@id='state']");
     final By CityField = By.xpath("//input[@id='city']");
-    final By ZipcodeFirld = By.xpath("//input[@id='zipcode']");
+    final By ZipcodeField = By.xpath("//input[@id='zipcode']");
     final By MobileField = By.xpath("//input[@id='mobile_number']");
     final By CreateAccountField = By.xpath("//button[normalize-space()='Create Account']");
     final By ContinueButton = By.xpath("//a[normalize-space()='Continue']");
