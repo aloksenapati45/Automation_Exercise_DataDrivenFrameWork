@@ -39,6 +39,4 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LoginButton));
         driver.findElement(LoginButton).click();
     }
-
-
 }
