@@ -8,25 +8,23 @@ import org.testng.annotations.Test;
 
 public class Login extends Base {
 
-   private LoginPage loginpage;
-   @BeforeClass
-   public void browserInvoke()
-   {
-       super.Setup();
-       loginpage = new LoginPage(driver);
-   }
+    private LoginPage loginpage;
 
-   @AfterClass
-   public void browserTearDown()
-   {
-       driver.close();
-   }
+    @BeforeClass
+    public void browserInvoke() {
+        super.Setup();
+        loginpage = new LoginPage(driver);
+    }
 
-   @Test(description = "Login to website.")
-   public void login()
-   {
-       loginpage.EnterUserName("alok@gmail.com");
-       loginpage.EnterPassword("Alok@1234");
-       loginpage.ClickOnLoginButton();
-   }
+    @AfterClass
+    public void browserTearDown() {
+        driver.close();
+    }
+
+    @Test(description = "Login to website.")
+    public void login() {
+        loginpage.EnterUserName("alok@gmail.com");
+        loginpage.EnterPassword("Alok@1234");
+        loginpage.ClickOnLoginButton();
+    }
 }
