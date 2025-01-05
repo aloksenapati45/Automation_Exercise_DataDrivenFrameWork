@@ -15,12 +15,12 @@ public class Login extends Base {
        super.Setup();
        loginpage = new LoginPage(driver);
    }
+
    @AfterClass
    public void browserTearDown()
    {
        driver.close();
    }
-
 
    @Test(description = "Login to website.")
    public void login()
@@ -29,5 +29,4 @@ public class Login extends Base {
        loginpage.EnterPassword("Alok@1234");
        loginpage.ClickOnLoginButton();
    }
-
 }
