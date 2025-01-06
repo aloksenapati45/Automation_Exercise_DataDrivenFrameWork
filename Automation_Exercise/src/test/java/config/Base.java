@@ -11,7 +11,7 @@ public class Base {
     public void Setup() {
         ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
-//        options.addArguments("--headless");
+//      options.addArguments("--headless");
         driver.manage().window().maximize();
         driver.get(Url);
     }
