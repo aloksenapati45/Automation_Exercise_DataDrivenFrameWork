@@ -20,6 +20,7 @@ public class LoginPage {
     final By UserNameField = By.xpath("(//input[@data-qa='login-email'])[1]");
     final By PasswordField = By.xpath("(//input[@placeholder='Password'])[1]");
     final By LoginButton = By.xpath("//button[normalize-space()='Login']");
+    final By ErrorMessage = By.xpath("//p[normalize-space()='Your email or password is incorrect!']");
 
     @Step("Entering UserName.")
     public void EnterUserName(String Username) {

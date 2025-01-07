@@ -20,7 +20,7 @@ public class Register extends Base {
         driver.close();
     }
 
-    @Test(description = "Register to the Application.")
+    @Test(description = "User Registration to the Application.")
     public void register(){
         register.EnterName("Alok");
         register.EnterEmail("alok12@gmail.com");
