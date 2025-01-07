@@ -1,5 +1,6 @@
 package PageClass;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,8 @@ public class LoginPage {
     final By PasswordField = By.xpath("(//input[@placeholder='Password'])[1]");
     final By LoginButton = By.xpath("//button[normalize-space()='Login']");
     final By ErrorMessage = By.xpath("//p[normalize-space()='Your email or password is incorrect!']");
+    final By LogoutButton = By.xpath("//a[normalize-space()='Logout']");
+
 
     @Step("Entering UserName.")
     public void EnterUserName(String Username) {
@@ -46,7 +49,12 @@ public class LoginPage {
         String ErrorMessageGet = driver.findElement(ErrorMessage).getText();
         if(ErrorMessageGet.equalsIgnoreCase("Your email or password is incorrect!"))
         {
-            System.out.println(ErrorMessageGet+" showing properly.");
+            Allure.epic("It is showing properly.");
         }
+    }
+
+    public void ClickLogoutButton(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LogoutButton));
+        driver.findElement(LogoutButton).click();
     }
 }
