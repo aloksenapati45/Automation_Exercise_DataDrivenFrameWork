@@ -1,5 +1,6 @@
 package PageClass;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -43,6 +44,7 @@ public class RegisterUser {
     final By ContinueButton = By.xpath("//a[normalize-space()='Continue']");
     final By DeleteAccountButton = By.xpath("//a[normalize-space()='Delete Account']");
     final By DeleteContinueButton = By.xpath("//a[normalize-space()='Continue']");
+    final By ErrorMessage = By.xpath("//p[normalize-space()='Email Address already exist!']");
 
     @Step("Entering Name.")
     public void EnterName(String Name) {
@@ -196,5 +198,15 @@ public class RegisterUser {
     public void ClickingDeleteContinueButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(DeleteContinueButton));
         driver.findElement(DeleteContinueButton).click();
+    }
+
+    @Step("Verify Error Message.")
+    public void VerifyErrorMessage(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ErrorMessage));
+        String GetErrorMessage = driver.findElement(ErrorMessage).getText();
+        if(GetErrorMessage.equalsIgnoreCase("Email Address already exist!"))
+        {
+            Allure.epic("Error Message showing properly.");
+        }
     }
 }
