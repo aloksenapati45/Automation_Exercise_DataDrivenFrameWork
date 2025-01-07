@@ -38,4 +38,14 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LoginButton));
         driver.findElement(LoginButton).click();
     }
+
+    @Step("Verifying Error Message 'Your email or password is incorrect!'")
+    public void VerifyErrorMessage(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ErrorMessage));
+        String ErrorMessageGet = driver.findElement(ErrorMessage).getText();
+        if(ErrorMessageGet.equalsIgnoreCase("Your email or password is incorrect!"))
+        {
+            System.out.println(ErrorMessageGet+" showing properly.");
+        }
+    }
 }
