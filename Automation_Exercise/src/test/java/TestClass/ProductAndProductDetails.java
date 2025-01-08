@@ -1,6 +1,6 @@
 package TestClass;
 
-import PageClass.CheckProductAndProductDetails;
+import PageClass.CheckProduct;
 import config.Base;
 import io.qameta.allure.Description;
 import org.testng.annotations.AfterClass;
@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 
 public class ProductAndProductDetails extends Base {
 
-    CheckProductAndProductDetails product;
+    CheckProduct product;
 
     @BeforeClass
     public void BrowserInvoke(){
         super.Setup();
-        product = new CheckProductAndProductDetails(driver);
+        product = new CheckProduct(driver);
     }
 
     @AfterClass

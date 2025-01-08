@@ -8,11 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CheckProductAndProductDetails {
+public class CheckProduct {
     WebDriver driver;
     WebDriverWait wait;
 
-    public CheckProductAndProductDetails(WebDriver driver){
+    public CheckProduct(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(40));
     }
@@ -26,6 +26,13 @@ public class CheckProductAndProductDetails {
     final By VerifyAvailability = By.xpath("//div[@class=\"product-details\"]/div[2]/div[1]/p[2]");
     final By VerifyCondition = By.xpath("//div[@class=\"product-details\"]/div[2]/div[1]/p[3]");
     final By VerifyBrand = By.xpath("//div[@class=\"product-details\"]/div[2]/div[1]/p[4]");
+    final By SearchProductField = By.xpath("//input[@id='search_product']");
+    final By SearchButton = By.xpath("//button[@id='submit_search']");
+    final By VerifyDressItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
+    final By VerifyTopItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
+    final By VerifySareeItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
+    final By VerifyTshirtItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
+    final By VerifyJeansItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
 
     @Step("Clicking Product Button.")
     public void ClickProductButton(){
@@ -99,6 +106,49 @@ public class CheckProductAndProductDetails {
         String ProductBrand = driver.findElement(VerifyBrand).getText();
         if(ProductBrand.contains("Polo")){
             System.out.println("It is showing Product Name"+ProductBrand);
+        }
+    }
+
+    @Step("Entering Item into Search Field.")
+    public void EnterSearchItem(String Item){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SearchProductField));
+        driver.findElement(SearchProductField).sendKeys(Item);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SearchButton));
+        driver.findElement(SearchButton).click();
+        if(Item.equalsIgnoreCase("Dress")){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(VerifyDressItem));
+            String Dress = driver.findElement(VerifyDressItem).getText();
+            if(Dress.contains("Dress")){
+                System.out.println("This is showing Dress Item.");
+            }
+        }
+        if(Item.equalsIgnoreCase("Tops")){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(VerifyTopItem));
+            String Top = driver.findElement(VerifyTopItem).getText();
+            if(Top.contains("Top")){
+                System.out.println("This is showing Top Items.");
+            }
+        }
+        if(Item.equalsIgnoreCase("Saree")){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(VerifySareeItem));
+            String Top = driver.findElement(VerifySareeItem).getText();
+            if(Top.contains("Saree")){
+                System.out.println("This is showing SAREE Items.");
+            }
+        }
+        if(Item.equalsIgnoreCase("Tshirt")){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(VerifyTshirtItem));
+            String Top = driver.findElement(VerifyTshirtItem).getText();
+            if(Top.contains("Tshirt")){
+                System.out.println("This is showing Tshirt Items.");
+            }
+        }
+        if(Item.equalsIgnoreCase("Jeans")){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(VerifyJeansItem));
+            String Top = driver.findElement(VerifyJeansItem).getText();
+            if(Top.contains("Jeans")){
+                System.out.println("This is showing Jeans Items.");
+            }
         }
     }
 }
