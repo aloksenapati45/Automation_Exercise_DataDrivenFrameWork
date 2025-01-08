@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Base {
-    String Url = "https://automationexercise.com/login";
+    String Url = "https://automationexercise.com/";
     public static WebDriver driver;
 
     public void Setup() {
