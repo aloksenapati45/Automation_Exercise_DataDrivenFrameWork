@@ -11,21 +11,21 @@ public class SearchProduct extends Base {
     CheckProduct product;
 
     @BeforeClass
-    public void BrowserInvoke(){
+    public void BrowserInvoke() {
         super.Setup();
         product = new CheckProduct(driver);
     }
 
     @AfterClass
-    public void TearDown(){
+    public void TearDown() {
         driver.close();
     }
 
     @Test
     @Description("Checking Search functionality.")
-    public void CheckSearchProduct(){
-product.ClickProductButton();
-product.VerifyAllProduct();
-product.EnterSearchItem("Saree");
+    public void CheckSearchProduct() {
+        product.ClickProductButton();
+        product.VerifyAllProduct();
+        product.EnterSearchItem("Saree");
     }
 }
