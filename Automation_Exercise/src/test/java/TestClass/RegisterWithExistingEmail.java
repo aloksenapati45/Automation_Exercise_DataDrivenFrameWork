@@ -24,6 +24,7 @@ public class RegisterWithExistingEmail extends Base {
     @Test
     @Description("Register with Existing name and Email")
     public void RegisterWithExistInputs(){
+        user.ClickingSignUpLoginButton();
         user.EnterName("Alok");
         user.EnterEmail("alok@gmail.com");
         user.ClickSignUpButton();

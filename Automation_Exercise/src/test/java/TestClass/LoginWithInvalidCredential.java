@@ -19,6 +19,7 @@ public class LoginWithInvalidCredential extends Base {
     }
     @Test(description = "Login with invalid credentials.")
     public void loginWithInvalidCredentials(){
+        page.ClickingSignUpLoginButton();
         page.EnterUserName("abc@gmail.com");
         page.EnterPassword("ABC");
         page.ClickOnLoginButton();

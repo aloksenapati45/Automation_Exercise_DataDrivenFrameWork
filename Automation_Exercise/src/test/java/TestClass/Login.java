@@ -25,6 +25,7 @@ public class Login extends Base {
     @Test
     @Description("Login to website.")
     public void login() {
+        loginpage.ClickingSignUpLoginButton();
         loginpage.EnterUserName("alok@gmail.com");
         loginpage.EnterPassword("Alok@1234");
         loginpage.ClickOnLoginButton();

@@ -24,6 +24,7 @@ public class Logout extends Base {
     @Test
     @Description("Logout to the application test")
     public void Logout() {
+        page.ClickingSignUpLoginButton();
         page.EnterUserName("alok@gmail.com");
         page.EnterPassword("Alok@1234");
         page.ClickOnLoginButton();

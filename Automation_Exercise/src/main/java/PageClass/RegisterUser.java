@@ -19,6 +19,7 @@ public class RegisterUser {
         wait = new WebDriverWait(driver, Duration.ofSeconds(40));
     }
 
+    final By SignUpLoginButton = By.xpath("//a[normalize-space()='Signup / Login']");
     final By NameField = By.xpath("//input[@placeholder='Name']");
     final By EmailField = By.xpath("//input[@data-qa='signup-email']");
     final By SignUpButton = By.xpath("//button[normalize-space()='Signup']");
@@ -45,6 +46,12 @@ public class RegisterUser {
     final By DeleteAccountButton = By.xpath("//a[normalize-space()='Delete Account']");
     final By DeleteContinueButton = By.xpath("//a[normalize-space()='Continue']");
     final By ErrorMessage = By.xpath("//p[normalize-space()='Email Address already exist!']");
+
+    @Step("clicking Signup/Login Button")
+    public void ClickingSignUpLoginButton(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SignUpLoginButton));
+        driver.findElement(SignUpLoginButton).click();
+    }
 
     @Step("Entering Name.")
     public void EnterName(String Name) {

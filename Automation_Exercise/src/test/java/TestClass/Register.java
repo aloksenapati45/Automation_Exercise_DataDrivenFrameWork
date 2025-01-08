@@ -22,6 +22,7 @@ public class Register extends Base {
 
     @Test(description = "User Registration to the Application.")
     public void register(){
+        register.ClickingSignUpLoginButton();
         register.EnterName("Alok");
         register.EnterEmail("alok12@gmail.com");
         register.ClickSignUpButton();
