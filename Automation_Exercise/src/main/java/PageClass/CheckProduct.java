@@ -3,7 +3,6 @@ package PageClass;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,7 +39,7 @@ public class CheckProduct {
     final By AddCartButtonFirst = By.xpath("//div[@class='col-sm-9 padding-right']//div[2]//div[1]//div[1]//div[2]//div[1]//a[1]");
     final By ContinueShoppingButton = By.xpath("//button[normalize-space()='Continue Shopping']");
     final By HoverSecondElement = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]");
-    final By AddCartButtonSecond = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]");
+    final By AddCartButtonSecond = By.xpath("//div[3]//div[1]//div[1]//div[2]//div[1]//a[1]");
     final By ViewCartButton = By.xpath("//u[normalize-space()='View Cart']");
     final By VerifyFirstProduct = By.xpath("//a[normalize-space()='Blue Top']");
     final By VerifySecondProduct = By.xpath("//a[normalize-space()='Men Tshirt']");
@@ -50,6 +49,36 @@ public class CheckProduct {
     final By VerifySecondProductPrice = By.xpath("(//p[contains(text(),'Rs. 400')])[1]");
     final By VerifySecondProductQuantity = By.xpath("(//button[@class='disabled'][normalize-space()='1'])[2]");
     final By VerifySecondProductTotalPrice = By.xpath("(//p[@class='cart_total_price'][normalize-space()='Rs. 400'])[1]");
+    final By SetQuantityField = By.xpath("//input[@id='quantity']");
+    final By AddToCartButton = By.xpath("//button[normalize-space()='Add to cart']");
+    final By ViewCartButtonAfterQuantitySet = By.xpath("//u[normalize-space()='View Cart']");
+    final By VerifyQuantity = By.xpath("//table[@id=\"cart_info_table\"]/tbody[1]/tr[1]/td[4]/button");
+
+    @Step("Increasing Quantity to 4.")
+    public void SetQuantityField(String Quantity){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SetQuantityField));
+        driver.findElement(SetQuantityField).clear();
+        driver.findElement(SetQuantityField).sendKeys(Quantity);
+    }
+
+    @Step("Clicking AddToCart Button.")
+    public void ClickAddToCart(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AddToCartButton));
+        driver.findElement(AddToCartButton).click();
+    }
+
+    @Step("Clicking The View Cart Button.")
+    public void ClickViewCart(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ViewCartButtonAfterQuantitySet));
+        driver.findElement(ViewCartButtonAfterQuantitySet).click();
+    }
+
+    @Step("Check Quantity you entered same or not.")
+    public void VerifyQuantity(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(VerifyQuantity));
+        String Quantity = driver.findElement(VerifyQuantity).getText();
+        System.out.println("Product Quantity : "+Quantity);
+    }
 
     @Step("Verify First product price.")
     public void VerifyFirstProductPrice() {
@@ -114,7 +143,7 @@ public class CheckProduct {
     @Step("Hover First Element.")
     public void HoverFirstElement() {
         act = new Actions(driver);
-        act.clickAndHold(driver.findElement(HoverFirstElement));
+        act.clickAndHold(driver.findElement(HoverFirstElement)).perform();
     }
 
     @Step("Clicking AddCart button in First Element.")
@@ -132,7 +161,7 @@ public class CheckProduct {
     @Step("Hover Second Element.")
     public void HoverSecondElement() {
         act = new Actions(driver);
-        act.clickAndHold(driver.findElement(HoverSecondElement));
+        act.clickAndHold(driver.findElement(HoverSecondElement)).perform();
     }
 
     @Step("Clicking AddCart button in second button.")
