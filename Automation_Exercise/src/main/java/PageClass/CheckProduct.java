@@ -35,8 +35,8 @@ public class CheckProduct {
     final By VerifySareeItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
     final By VerifyTshirtItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
     final By VerifyJeansItem = By.xpath("//div[@class=\"features_items\"]/div[2]/div[1]/div[1]/div[1]/p");
-    final By HoverFirstElement = By.xpath("//div[@class='col-sm-9 padding-right']//div[2]//div[1]//div[1]//div[2]");
-    final By AddCartButtonFirst = By.xpath("//div[@class='col-sm-9 padding-right']//div[2]//div[1]//div[1]//div[2]//div[1]//a[1]");
+    final By HoverFirstElement = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]");
+    final By AddCartButtonFirst = By.xpath("(//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart'])[2]");
     final By ContinueShoppingButton = By.xpath("//button[normalize-space()='Continue Shopping']");
     final By HoverSecondElement = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]");
     final By AddCartButtonSecond = By.xpath("//div[3]//div[1]//div[1]//div[2]//div[1]//a[1]");
