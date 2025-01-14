@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.concurrent.locks.Condition;
 
 public class CartPage {
     WebDriver driver;
@@ -31,6 +30,8 @@ public class CartPage {
     final By PayAndConfirmButton = By.xpath("//button[@id='submit']");
     final By VerifyConfirmMessage = By.xpath("//p[normalize-space()='Congratulations! Your order has been confirmed!']");
     final By ContinueButton = By.xpath("//a[normalize-space()='Continue']");
+    final By RemoveItemButton = By.xpath("(//a[@class='cart_quantity_delete'])[1]");
+    final By VerifyCartEmpty = By.xpath("//b[normalize-space()='Cart is empty!']");
 
 
     @Step("Clicking Cart Button in Homepage.")
@@ -110,6 +111,19 @@ public class CartPage {
     public void ClickingContinueButton(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(ContinueButton));
         driver.findElement(ContinueButton).click();
+    }
+
+    @Step("Clicking Remove Button")
+    public void ClickRemoveButton(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(RemoveItemButton));
+        driver.findElement(RemoveItemButton).click();
+    }
+
+    @Step("Verify Cart is Empty.")
+    public void VerifyCartIsEmpty(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(VerifyCartEmpty));
+        String Message = driver.findElement(VerifyCartEmpty).getText();
+        System.out.println(Message);
     }
 
 }
