@@ -53,6 +53,39 @@ public class CheckProduct {
     final By AddToCartButton = By.xpath("//button[normalize-space()='Add to cart']");
     final By ViewCartButtonAfterQuantitySet = By.xpath("//u[normalize-space()='View Cart']");
     final By VerifyQuantity = By.xpath("//table[@id=\"cart_info_table\"]/tbody[1]/tr[1]/td[4]/button");
+    final By HoverFirstSareeItem = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]");
+    final By AddCartButtonFirstSaree = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]");
+    final By HoverSecondSareeItem = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]");
+    final By AddCartButtonSecondSaree = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]");
+    final By HoverThirdSareeItem = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]");
+    final By AddCartButtonThirdSaree = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]");
+
+    @Step("Hover on first product in saree.")
+    public void HoverFirstSareeAndAddCart(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(HoverFirstSareeItem));
+        act = new Actions(driver);
+        act.clickAndHold(driver.findElement(HoverFirstSareeItem)).perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AddCartButtonFirstSaree));
+        driver.findElement(AddCartButtonFirstSaree).click();
+    }
+
+    @Step("Hover on Second product in saree.")
+    public void HoverSecondSareeAndAddCart(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(HoverSecondSareeItem));
+        act = new Actions(driver);
+        act.clickAndHold(driver.findElement(HoverSecondSareeItem)).perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AddCartButtonSecondSaree));
+        driver.findElement(AddCartButtonSecondSaree).click();
+    }
+
+    @Step("Hover on Third product in saree.")
+    public void HoverThirdSareeAndAddCart(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(HoverThirdSareeItem));
+        act = new Actions(driver);
+        act.clickAndHold(driver.findElement(HoverThirdSareeItem)).perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AddCartButtonThirdSaree));
+        driver.findElement(AddCartButtonThirdSaree).click();
+    }
 
     @Step("Increasing Quantity to 4.")
     public void SetQuantityField(String Quantity){
