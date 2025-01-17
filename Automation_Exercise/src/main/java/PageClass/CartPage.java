@@ -32,6 +32,7 @@ public class CartPage {
     final By ContinueButton = By.xpath("//a[normalize-space()='Continue']");
     final By RemoveItemButton = By.xpath("(//a[@class='cart_quantity_delete'])[1]");
     final By VerifyCartEmpty = By.xpath("//b[normalize-space()='Cart is empty!']");
+    final By AddToCartButton = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
 
 
     @Step("Clicking Cart Button in Homepage.")

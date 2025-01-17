@@ -2,6 +2,7 @@ package PageClass;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -51,7 +52,6 @@ public class CheckProduct {
     final By VerifySecondProductTotalPrice = By.xpath("(//p[@class='cart_total_price'][normalize-space()='Rs. 400'])[1]");
     final By SetQuantityField = By.xpath("//input[@id='quantity']");
     final By AddToCartButton = By.xpath("//button[normalize-space()='Add to cart']");
-    final By ViewCartButtonAfterQuantitySet = By.xpath("//u[normalize-space()='View Cart']");
     final By VerifyQuantity = By.xpath("//table[@id=\"cart_info_table\"]/tbody[1]/tr[1]/td[4]/button");
     final By HoverFirstSareeItem = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]");
     final By AddCartButtonFirstSaree = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/a[1]");
@@ -59,6 +59,57 @@ public class CheckProduct {
     final By AddCartButtonSecondSaree = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/a[1]");
     final By HoverThirdSareeItem = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]");
     final By AddCartButtonThirdSaree = By.xpath("/html[1]/body[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]");
+    final By NameField = By.xpath("//input[@id='name']");
+    final By EmailField = By.xpath("//input[@id='email']");
+    final By AddReviewField = By.xpath("//textarea[@id='review']");
+    final By SubmitButton = By.xpath("//button[@id='button-review']");
+    final By RecommendedItemsText = By.xpath("//h2[normalize-space()='recommended items']");
+    final By FirstItemAddToCartButton = By.xpath("//div[@class='item active']//div[1]//div[1]//div[1]//div[1]//a[1]");
+    final By CheckingDressName = By.xpath("//a[normalize-space()='Stylish Dress']");
+
+
+    @Step("Checking the Recommended item.")
+    public void VerifyRecommendedItem(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CheckingDressName));
+        String DressName = driver.findElement(CheckingDressName).getText();
+        System.out.println(DressName);
+    }
+
+    @Step("Clicking on add to cart button.")
+    public void ClickAddToCartButtonOnFirstItem(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FirstItemAddToCartButton));
+        driver.findElement(FirstItemAddToCartButton).click();
+    }
+
+    @Step("scroll to Recommended Item text.")
+    public void ScrollUpToRecommendedItem(){
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(RecommendedItemsText));
+    }
+
+    @Step("Entering Name.")
+    public void NameField(String Name){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(NameField));
+        driver.findElement(NameField).sendKeys(Name);
+    }
+
+    @Step("Entering Email.")
+    public void EmailField(String Email){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(EmailField));
+        driver.findElement(EmailField).sendKeys(Email);
+    }
+
+    @Step("Entering Reviews.")
+    public void ReviewField(String Review){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AddReviewField));
+        driver.findElement(AddReviewField).sendKeys(Review);
+    }
+
+    @Step("Clicking Submit button.")
+    public void ClickSubmitButton(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SubmitButton));
+        driver.findElement(SubmitButton).click();
+    }
 
     @Step("Hover on first product in saree.")
     public void HoverFirstSareeAndAddCart(){
@@ -102,8 +153,8 @@ public class CheckProduct {
 
     @Step("Clicking The View Cart Button.")
     public void ClickViewCart(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(ViewCartButtonAfterQuantitySet));
-        driver.findElement(ViewCartButtonAfterQuantitySet).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ViewCartButton));
+        driver.findElement(ViewCartButton).click();
     }
 
     @Step("Check Quantity you entered same or not.")
