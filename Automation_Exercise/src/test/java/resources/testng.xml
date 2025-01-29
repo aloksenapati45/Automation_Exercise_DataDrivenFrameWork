@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="CheckAddReviewOnProductSuite">
+    <test name="CheckAddReviewOnProduct">
+        <classes>
+            <class name="TestClass.CheckAddReviewOnProduct"/>
+        </classes>
+    </test>
+    <test name="Check login functionality">
+        <classes>
+            <class name="TestClass.CheckAddToCartFromRecommendedItems"/>
+        </classes>
+    </test>
+</suite>
