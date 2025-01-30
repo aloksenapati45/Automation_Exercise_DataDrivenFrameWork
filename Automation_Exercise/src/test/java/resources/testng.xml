@@ -1,13 +1,29 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="CheckAddReviewOnProductSuite">
-    <test name="CheckAddReviewOnProduct">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AutomationTestSuite" parallel="false">
+    <test name="AllTests">
         <classes>
             <class name="TestClass.CheckAddReviewOnProduct"/>
-        </classes>
-    </test>
-    <test name="Check login functionality">
-        <classes>
             <class name="TestClass.CheckAddToCartFromRecommendedItems"/>
+            <class name="TestClass.CheckPlaceOrderLoginBeforeCheckout"/>
+            <class name="TestClass.CheckPlaceOrderRegisterBeforeCheckout"/>
+            <class name="TestClass.CheckPlaceOrderRegisterWhileCheckOut"/>
+            <class name="TestClass.CheckProductQuantityInCart"/>
+            <class name="TestClass.CheckRemoveFromCart"/>
+            <class name="TestClass.CheckSearchProductsAndVerifyCartAfterLogin"/>
+            <class name="TestClass.Checksubscription"/>
+            <class name="TestClass.CheckSubscriptionInCart"/>
+            <class name="TestClass.CheckViewCartBrandProducts"/>
+            <class name="TestClass.CheckViewCategoryProducts"/>
+            <class name="TestClass.ContactUsFormFill"/>
+            <class name="TestClass.Login"/>
+            <class name="TestClass.LoginWithInvalidCredential"/>
+            <class name="TestClass.Logout"/>
+            <class name="TestClass.ProductAndProductDetails"/>
+            <class name="TestClass.Register"/>
+            <class name="TestClass.RegisterWithExistingEmail"/>
+            <class name="TestClass.SearchProduct"/>
+            <class name="TestClass.TestCasesCheck"/>
+            <class name="TestClass.VerifyAddCart"/>
         </classes>
     </test>
 </suite>
